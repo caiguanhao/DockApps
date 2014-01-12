@@ -5,6 +5,8 @@ Open your favorite websites in the dock.
 
 This shell script will download app icon in png format and convert them to an .icns icon. A small .app file will be created and it contains shell script to open website in your default browser.
 
+![screenshot](https://f.cloud.github.com/assets/1284703/1896367/c7b07ebe-7b99-11e3-89c4-ab177da3bc05.png)
+
 Usage
 -----
 
