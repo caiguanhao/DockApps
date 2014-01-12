@@ -37,6 +37,11 @@ To see list of default URLs of selected apps:
 
     ./make.sh --dry-run --github "" --wikipedia ""
 
+Example:
+
+    ./make.sh --github "caiguanhao?tab=repositories" \
+        --youtube "feed/subscriptions" --wikipedia - --twitter -
+
 Apps
 ----
 
