@@ -97,31 +97,50 @@ FILE
   cd ../..
 }
 
-DRYRUN="make_app"
-
 make()
 {
   case "$3" in
-  -)                  ;;
-  http://*|https://*) $DRYRUN "$1" "$3" ;;
+  -)                  $DRYRUN "$1" "$2"   ;;
+  http://*|https://*) $DRYRUN "$1" "$3"   ;;
   *)                  $DRYRUN "$1" "$2$3" ;;
   esac
+  APP_COUNT=$((APP_COUNT + 1))
 }
 
-if [ $# -eq 0 ]; then
-  make_app "GitHub" "https://github.com/"
-  make_app "Wikipedia" "http://en.wikipedia.org/"
-  make_app "YouTube" "http://www.youtube.com/"
-  make_app "Twitter" "https://twitter.com/"
-  exit 0
-fi
+make_all()
+{
+  if [ ! -z "$github"    ]; then
+    make "GitHub"    "https://github.com/"      "$github"
+  fi
+  if [ ! -z "$wikipedia" ]; then
+    make "Wikipedia" "http://en.wikipedia.org/" "$wikipedia"
+  fi
+  if [ ! -z "$youtube"   ]; then
+    make "YouTube"   "http://www.youtube.com/"  "$youtube"
+  fi
+  if [ ! -z "$twitter"   ]; then
+    make "Twitter"   "https://twitter.com/"     "$twitter"
+  fi
+}
 
-for var in "$@"; do
-  case "$var" in
+DRYRUN="make_app"
+APP_COUNT=0
+
+while [ $# -gt 0 ]; do
+  case "$1" in
   --dry-run|-d)
     DRYRUN="echo"
+    shift
     ;;
-  --help|-h)
+  --github|--wikipedia|--youtube|--twitter)
+    URL=$2
+    if [ -z "$URL" ]; then
+      URL="-"
+    fi
+    eval "export \${1#--}=\"\${URL}\""
+    shift 2
+    ;;
+  *)
     cat <<HELP
 make.sh accepts these arguments:
 
@@ -140,32 +159,14 @@ HELP
   esac
 done
 
-while [ $# -gt 0 ]; do
-  case "$1" in
-  --dry-run|-d|--help|-h)
-    shift
-    ;;
-  --github)
-    shift
-    make "GitHub" "https://github.com/" "$1"
-    shift
-    ;;
-  --wikipedia)
-    shift
-    make "Wikipedia" "http://en.wikipedia.org/" "$1"
-    shift
-    ;;
-  --youtube)
-    shift
-    make "YouTube" "http://www.youtube.com/" "$1"
-    shift
-    ;;
-  --twitter)
-    shift
-    make "Twitter" "https://twitter.com/" "$1"
-    shift
-    ;;
-  esac
-done
+make_all
+
+if [ $APP_COUNT -eq 0 ]; then
+  github="-"
+  wikipedia="-"
+  youtube="-"
+  twitter="-"
+  make_all
+fi
 
 exit 0
