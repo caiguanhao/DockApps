@@ -21,11 +21,12 @@ it will build all apps with default settings.
 
     make.sh accepts these arguments:
 
-    --dry-run                Do not make. Show URLs.
-    --github <URL>           Make with GitHub.app.
-    --wikipedia <URL>        Make with Wikipedia.app.
-    --youtube <URL>          Make with YouTube.app.
-    --twitter <URL>          Make with Twitter.app.
+        --help, -h               Show this help and exit.
+        --dry-run, -d            Do not make. Show URLs.
+        --github <URL>           Make GitHub.app.
+        --wikipedia <URL>        Make Wikipedia.app.
+        --youtube <URL>          Make YouTube.app.
+        --twitter <URL>          Make Twitter.app.
 
     <URL> is relative to default URL of each app if it is
     not started with http:// or https://.

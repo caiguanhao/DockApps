@@ -116,11 +116,34 @@ if [ $# -eq 0 ]; then
   exit 0
 fi
 
+for var in "$@"; do
+  case "$var" in
+  --dry-run|-d)
+    DRYRUN="echo"
+    ;;
+  --help|-h)
+    cat <<HELP
+make.sh accepts these arguments:
+
+    --help, -h               Show this help and exit.
+    --dry-run, -d            Do not make. Show URLs.
+    --github <URL>           Make GitHub.app.
+    --wikipedia <URL>        Make Wikipedia.app.
+    --youtube <URL>          Make YouTube.app.
+    --twitter <URL>          Make Twitter.app.
+
+<URL> is relative to default URL of each app if it is
+not started with http:// or https://.
+HELP
+    exit 0
+    ;;
+  esac
+done
+
 while [ $# -gt 0 ]; do
   case "$1" in
-  --dry-run)
+  --dry-run|-d|--help|-h)
     shift
-    DRYRUN="echo"
     ;;
   --github)
     shift
