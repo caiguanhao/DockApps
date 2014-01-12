@@ -97,7 +97,52 @@ FILE
   cd ../..
 }
 
-make_app "GitHub" "https://github.com/"
-make_app "Wikipedia" "http://en.wikipedia.org/"
-make_app "YouTube" "http://www.youtube.com/feed/subscriptions"
-make_app "Twitter" "https://twitter.com/"
+DRYRUN="make_app"
+
+make()
+{
+  case "$3" in
+  -)                  ;;
+  http://*|https://*) $DRYRUN "$1" "$3" ;;
+  *)                  $DRYRUN "$1" "$2$3" ;;
+  esac
+}
+
+if [ $# -eq 0 ]; then
+  make_app "GitHub" "https://github.com/"
+  make_app "Wikipedia" "http://en.wikipedia.org/"
+  make_app "YouTube" "http://www.youtube.com/"
+  make_app "Twitter" "https://twitter.com/"
+  exit 0
+fi
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+  --dry-run)
+    shift
+    DRYRUN="echo"
+    ;;
+  --github)
+    shift
+    make "GitHub" "https://github.com/" "$1"
+    shift
+    ;;
+  --wikipedia)
+    shift
+    make "Wikipedia" "http://en.wikipedia.org/" "$1"
+    shift
+    ;;
+  --youtube)
+    shift
+    make "YouTube" "http://www.youtube.com/" "$1"
+    shift
+    ;;
+  --twitter)
+    shift
+    make "Twitter" "https://twitter.com/" "$1"
+    shift
+    ;;
+  esac
+done
+
+exit 0
