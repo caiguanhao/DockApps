@@ -30,5 +30,26 @@ clean:
 
 install:
 	cp -r *.app /Applications/
+	@echo "Apps have been copied to /Applications directory."
+	@echo "Do you want to add those apps to your dock?"
+	@echo "Type yes to continue, anything else to break. \c"; \
+	read answer; \
+	if [ "$$answer" = "yes" ]; then \
+	for app in $$(ls -d *.app); \
+	do defaults write com.apple.dock persistent-apps -array-add "<dict> \
+	  <key>tile-data</key> \
+	  <dict> \
+	    <key>file-data</key> \
+	    <dict> \
+	      <key>_CFURLString</key> \
+	      <string>/Applications/$$app</string> \
+	      <key>_CFURLStringType</key> \
+	      <integer>0</integer> \
+	    </dict> \
+	  </dict> \
+	</dict>"; \
+	done; \
+	killall Dock; \
+	fi
 
 .PHONY: clean install all

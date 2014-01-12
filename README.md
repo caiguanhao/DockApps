@@ -3,21 +3,23 @@ DockApps
 
 Open your favorite websites in the dock.
 
+This shell script will download app icon in png format and convert them to an .icns icon. A small .app file will be created and it contains shell script to open website in your default browser.
+
 Usage
 -----
 
-If you have GNU make installed, open terminal, ``cd`` to this repository directory and run:
+If you have GNU make installed, open terminal, ``cd`` to the repository directory and run:
 
     make
     make install
 
-and you'll be asked which apps to make and what URL the app will open. After that, the apps will be copied to /Applications/ directory.
+and you'll be asked which apps to make and what URL the app will open. After that, the apps will be copied to /Applications/ directory. You will be asked if you want to add those apps to your dock.
 
-If you don't have GNU make, you can also open terminal, ``cd`` to this repository directory and run:
+If you don't have GNU make, you can also open terminal, ``cd`` to the repository directory and run:
 
     ./make.sh
 
-it will build all apps with default settings.
+it will build all apps with default URLs.
 
     make.sh accepts these arguments:
 
