@@ -3,6 +3,37 @@ DockApps
 
 Open your favorite websites in the dock.
 
+Usage
+-----
+
+If you have GNU make installed, open terminal, ``cd`` to this repository directory and run:
+
+    make
+    make install
+
+and you'll be asked which apps to make and what URL the app will open. After that, the apps will be copied to /Applications/ directory.
+
+If you don't have GNU make, you can also open terminal, ``cd`` to this repository directory and run:
+
+    ./make.sh
+
+it will build all apps with default settings.
+
+    make.sh accepts these arguments:
+
+    --dry-run                Do not make. Show URLs.
+    --github <URL>           Make with GitHub.app.
+    --wikipedia <URL>        Make with Wikipedia.app.
+    --youtube <URL>          Make with YouTube.app.
+    --twitter <URL>          Make with Twitter.app.
+
+    <URL> is relative to default URL of each app if it is
+    not started with http:// or https://.
+
+To see list of default URLs of selected apps:
+
+    ./make.sh --dry-run --github "" --wikipedia ""
+
 Apps
 ----
 
