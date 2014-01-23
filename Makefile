@@ -29,12 +29,22 @@ clean:
 	rm -rf *.app
 
 install:
-	cp -r *.app /Applications/
-	@echo "Apps have been copied to /Applications directory."
-	@echo "Do you want to add those apps to your dock?"
-	@echo "Type yes to continue, anything else to break. \c"; \
+	@echo "Copy apps to this folder: (it will be created if it doesn't exist)"; \
+	echo "/Applications/\c"; \
+	read directory; \
+	if [ "$$OVERWRITE" != "YES" ]; then \
+	for app in $$(ls -d *.app); \
+	do [ -e "/Applications/$$directory/$$app" ] && \
+	echo "/Applications/$$directory/$$app exists. Aborted. But you can run" && \
+	echo "'OVERWRITE=YES make install' to overwrite these files." && exit 1; \
+	done; \
+	fi; \
+	mkdir -p "/Applications/$$directory"; \
+	cp -r *.app "/Applications/$$directory"; \
+	echo "Apps have been copied to /Applications/$$directory."; \
+	echo "Add the apps to your dock? Type 'y' to add, otherwise to break. \c"; \
 	read answer; \
-	if [ "$$answer" = "yes" ]; then \
+	if [ "$$answer" = "y" ]; then \
 	for app in $$(ls -d *.app); \
 	do defaults write com.apple.dock persistent-apps -array-add "<dict> \
 	  <key>tile-data</key> \
@@ -42,7 +52,7 @@ install:
 	    <key>file-data</key> \
 	    <dict> \
 	      <key>_CFURLString</key> \
-	      <string>/Applications/$$app</string> \
+	      <string>/Applications/$$directory/$$app</string> \
 	      <key>_CFURLStringType</key> \
 	      <integer>0</integer> \
 	    </dict> \
@@ -50,6 +60,11 @@ install:
 	</dict>"; \
 	done; \
 	killall Dock; \
+	fi; \
+	echo "Open the folder in Finder? Type 'y' to open, otherwise to break. \c"; \
+	read answer; \
+	if [ "$$answer" = "y" ]; then \
+	open "/Applications/$$directory"; \
 	fi
 
 .PHONY: clean install all
