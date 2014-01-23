@@ -17,6 +17,8 @@ If you have GNU make installed, open terminal, ``cd`` to the repository director
 
 and you'll be asked which apps to make and what URL the app will open. After that, the apps will be copied to /Applications/ directory. You will be asked if you want to add those apps to your dock.
 
+---
+
 If you don't have GNU make, you can also open terminal, ``cd`` to the repository directory and run:
 
     ./make.sh
@@ -49,7 +51,7 @@ Apps
 
 ### GitHub
 
-* [GitHub icon file](https://github.com/fluidicon.png) can be found in the source code of GitHub web page.
+* [GitHub icon file](https://github.com/fluidicon.png) can be found in the source code of GitHub home page.
 
 ### YouTube
 
@@ -61,7 +63,7 @@ Apps
 
 ### Wikipedia
 
-* [Wikipedia icon file](http://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1024px-Wikipedia-logo-v2.svg.png) can be found Wikipedia's [web page](http://en.wikipedia.org/wiki/File:Wikipedia-logo-v2.svg).
+* [Wikipedia icon file](http://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1024px-Wikipedia-logo-v2.svg.png) can be found on Wikipedia's [web page](http://en.wikipedia.org/wiki/File:Wikipedia-logo-v2.svg).
 
 Developers
 ----------
