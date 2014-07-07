@@ -34,6 +34,7 @@ it will build all apps with default URLs.
         --youtube <URL>          Make YouTube.app.
         --twitter <URL>          Make Twitter.app.
         --gmail <URL>            Make Gmail.app.
+        --facebook <URL>         Make Facebook.app.
 
     <URL> is relative to default URL of each app if it is
     not started with http:// or https://.
@@ -69,6 +70,10 @@ Apps
 ### Gmail
 
 * [Gmail icon file](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png)
+
+### Facebook
+
+* [Facebook icon file](http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png)
 
 Developers
 ----------

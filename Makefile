@@ -25,6 +25,7 @@ all:
 	$(call ask,YouTube,youtube,http://www.youtube.com/)
 	$(call ask,Twitter,twitter,https://twitter.com/)
 	$(call ask,Gmail,gmail,https://gmail.com/)
+	$(call ask,Facebook,facebook,https://www.facebook.com/)
 
 clean:
 	rm -rf *.app

@@ -42,6 +42,12 @@ make_app()
 /commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png"
     sips -p 1024 1024 "${app_name}.png" > /dev/null
     ;;
+  Facebook)
+    curl -Lso "${app_name}.png" "http://img2.wikia.nocookie.net/\
+__cb20130501121248/logopedia/images/thumb/f/fb/Facebook_icon_2013.svg\
+/1024px-Facebook_icon_2013.svg.png"
+    sips -p 1024 1024 "${app_name}.png" > /dev/null
+    ;;
   *)
     rm -rf "${app_dir}"
     echo "Error: App name does not exist."
@@ -115,19 +121,22 @@ make()
 make_all()
 {
   if [ ! -z "$github"    ]; then
-    make "GitHub"    "https://github.com/"      "$github"
+    make "GitHub"    "https://github.com/"       "$github"
   fi
   if [ ! -z "$wikipedia" ]; then
-    make "Wikipedia" "http://en.wikipedia.org/" "$wikipedia"
+    make "Wikipedia" "http://en.wikipedia.org/"  "$wikipedia"
   fi
   if [ ! -z "$youtube"   ]; then
-    make "YouTube"   "http://www.youtube.com/"  "$youtube"
+    make "YouTube"   "http://www.youtube.com/"   "$youtube"
   fi
   if [ ! -z "$twitter"   ]; then
-    make "Twitter"   "https://twitter.com/"     "$twitter"
+    make "Twitter"   "https://twitter.com/"      "$twitter"
   fi
   if [ ! -z "$gmail"     ]; then
-    make "Gmail"     "https://gmail.com/"       "$gmail"
+    make "Gmail"     "https://gmail.com/"        "$gmail"
+  fi
+  if [ ! -z "$facebook"  ]; then
+    make "Facebook"  "https://www.facebook.com/" "$facebook"
   fi
 }
 
@@ -140,7 +149,7 @@ while [ $# -gt 0 ]; do
     DRYRUN="echo"
     shift
     ;;
-  --github|--wikipedia|--youtube|--twitter|--gmail)
+  --github|--wikipedia|--youtube|--twitter|--gmail|--facebook)
     URL=$2
     if [ -z "$URL" ]; then
       URL="-"
@@ -159,6 +168,7 @@ make.sh accepts these arguments:
     --youtube <URL>          Make YouTube.app.
     --twitter <URL>          Make Twitter.app.
     --gmail <URL>            Make Gmail.app.
+    --facebook <URL>         Make Facebook.app.
 
 <URL> is relative to default URL of each app if it is
 not started with http:// or https://.
@@ -176,6 +186,7 @@ if [ $APP_COUNT -eq 0 ]; then
   youtube="-"
   twitter="-"
   gmail="-"
+  facebook="-"
   make_all
 fi
 
