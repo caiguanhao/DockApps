@@ -33,6 +33,7 @@ it will build all apps with default URLs.
         --wikipedia <URL>        Make Wikipedia.app.
         --youtube <URL>          Make YouTube.app.
         --twitter <URL>          Make Twitter.app.
+        --gmail <URL>            Make Gmail.app.
 
     <URL> is relative to default URL of each app if it is
     not started with http:// or https://.
@@ -64,6 +65,10 @@ Apps
 ### Wikipedia
 
 * [Wikipedia icon file](http://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1024px-Wikipedia-logo-v2.svg.png) can be found on Wikipedia's [web page](http://en.wikipedia.org/wiki/File:Wikipedia-logo-v2.svg).
+
+### Gmail
+
+* [Gmail icon file](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png)
 
 Developers
 ----------

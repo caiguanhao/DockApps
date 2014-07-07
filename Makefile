@@ -24,6 +24,7 @@ all:
 	$(call ask,Wikipedia,wikipedia,http://en.wikipedia.org/)
 	$(call ask,YouTube,youtube,http://www.youtube.com/)
 	$(call ask,Twitter,twitter,https://twitter.com/)
+	$(call ask,Gmail,gmail,https://gmail.com/)
 
 clean:
 	rm -rf *.app

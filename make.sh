@@ -37,6 +37,11 @@ make_app()
 /en/thumb/8/80/Wikipedia-logo-v2.svg/1024px-Wikipedia-logo-v2.svg.png"
     sips -p 1024 1024 "${app_name}.png" > /dev/null
     ;;
+  Gmail)
+    curl -Lso "${app_name}.png" "https://upload.wikimedia.org/wikipedia\
+/commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png"
+    sips -p 1024 1024 "${app_name}.png" > /dev/null
+    ;;
   *)
     rm -rf "${app_dir}"
     echo "Error: App name does not exist."
@@ -121,6 +126,9 @@ make_all()
   if [ ! -z "$twitter"   ]; then
     make "Twitter"   "https://twitter.com/"     "$twitter"
   fi
+  if [ ! -z "$gmail"     ]; then
+    make "Gmail"     "https://gmail.com/"       "$gmail"
+  fi
 }
 
 DRYRUN="make_app"
@@ -132,7 +140,7 @@ while [ $# -gt 0 ]; do
     DRYRUN="echo"
     shift
     ;;
-  --github|--wikipedia|--youtube|--twitter)
+  --github|--wikipedia|--youtube|--twitter|--gmail)
     URL=$2
     if [ -z "$URL" ]; then
       URL="-"
@@ -150,6 +158,7 @@ make.sh accepts these arguments:
     --wikipedia <URL>        Make Wikipedia.app.
     --youtube <URL>          Make YouTube.app.
     --twitter <URL>          Make Twitter.app.
+    --gmail <URL>            Make Gmail.app.
 
 <URL> is relative to default URL of each app if it is
 not started with http:// or https://.
@@ -166,6 +175,7 @@ if [ $APP_COUNT -eq 0 ]; then
   wikipedia="-"
   youtube="-"
   twitter="-"
+  gmail="-"
   make_all
 fi
 
