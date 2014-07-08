@@ -3,7 +3,9 @@ DockApps
 
 Open your favorite websites in the dock.
 
-This shell script will download app icon in png format and convert them to an .icns icon. A small .app file will be created and it contains shell script to open website in your default browser.
+This shell script will download app icon in png format and convert them to an .icns icon. A small .app file will be created and it contains a shell script whose content comes from `template.sh`.
+
+By default, it will first connect to one of your PPTP VPN service (if you have any), and then open the web site in your default web browser.
 
 ![screenshot](https://f.cloud.github.com/assets/1284703/1896367/c7b07ebe-7b99-11e3-89c4-ab177da3bc05.png)
 

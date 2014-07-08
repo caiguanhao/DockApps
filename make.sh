@@ -98,10 +98,7 @@ FILE
   mkdir -p "MacOS"
 
   echo "Making executable... \c"
-  cat > "MacOS/${app_name}"  <<FILE
-#!/bin/sh
-/usr/bin/open "${app_url}"
-FILE
+  ../../template.sh "${app_url}" > "MacOS/${app_name}"
   chmod +x "MacOS/${app_name}"
   echo "OK"
 
