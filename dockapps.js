@@ -7,12 +7,14 @@ var spawn = require('child_process').spawn;
 var inquirer = require("inquirer");
 
 var choices = {
+  'Dropbox':   'https://www.dropbox.com/',
   'Facebook':  'https://www.facebook.com/',
   'GitHub':    'https://github.com/',
   'Gmail':     'https://gmail.com/',
+  'Instagram': 'http://instagram.com/',
   'Twitter':   'https://twitter.com/',
-  'Wikipedia': 'http://en.wikipedia.org/',
-  'YouTube':   'http://www.youtube.com/'
+  'Wikipedia': 'https://en.wikipedia.org/',
+  'YouTube':   'https://www.youtube.com/'
 };
 var choicesKeys = keys(choices);
 

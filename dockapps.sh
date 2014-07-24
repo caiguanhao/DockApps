@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 help()
 {
   cat <<HELP
@@ -54,7 +56,15 @@ download()
   fi
   mkdir -p "${app_iconset_dir}"
   cd "${app_iconset_dir}"
-  curl -Lso "${app_name}.png" "$1"
+  case "$1" in
+    *.zip)
+      curl -Lso "/tmp/tmp.zip" "$1"
+      unzip -oq "/tmp/tmp.zip" -d "/tmp"
+      ;;
+    *)
+      curl -Lso "${app_name}.png" "$1"
+      ;;
+  esac
 }
 
 case "$app_name" in
@@ -84,6 +94,15 @@ case "$app_name" in
     download "http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/\
 images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
+    ;;
+  Dropbox)
+    download "http://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Dropbox-icon.png"
+    sips -z 1024 1024 "${app_name}.png" >/dev/null
+    ;;
+  Instagram)
+    download "http://static.ak.instagram.com/press/brand-assets/Instagram_Icon_Large.zip"
+    mv /tmp/Instagram_Icon_Large.png "${app_name}.png"
+    sips -z 1024 1024 "${app_name}.png" >/dev/null
     ;;
   *)
     help

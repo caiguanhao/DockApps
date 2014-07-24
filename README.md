@@ -17,13 +17,25 @@ shell script.
 Apps
 ----
 
+### Dropbox
+
+* [Dropbox icon file](http://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Dropbox-icon.png)
+
+### Facebook
+
+* [Facebook icon file](http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png)
+
 ### GitHub
 
 * [GitHub icon file](https://github.com/fluidicon.png) can be found in the source code of GitHub home page.
 
-### YouTube
+### Gmail
 
-* [YouTubee icon file](http://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png) can be downloaded on the YouTube's [Brand Assets Download](http://www.youtube.com/yt/brand/downloads.html) web page.
+* [Gmail icon file](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png)
+
+### Instagram
+
+* [Instagram icon file](http://static.ak.instagram.com/press/brand-assets/Instagram_Icon_Large.zip)
 
 ### Twitter
 
@@ -33,13 +45,9 @@ Apps
 
 * [Wikipedia icon file](http://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1024px-Wikipedia-logo-v2.svg.png) can be found on Wikipedia's [web page](http://en.wikipedia.org/wiki/File:Wikipedia-logo-v2.svg).
 
-### Gmail
+### YouTube
 
-* [Gmail icon file](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png)
-
-### Facebook
-
-* [Facebook icon file](http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png)
+* [YouTubee icon file](http://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png) can be downloaded on the YouTube's [Brand Assets Download](http://www.youtube.com/yt/brand/downloads.html) web page.
 
 Developers
 ----------
