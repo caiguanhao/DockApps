@@ -11,33 +11,12 @@ HELP
 
 while [ $# -gt 0 ]; do
   case "$1" in
-    --app)
-      shift
-      app_name="$1"
-      shift
-      ;;
-    --url)
-      shift
-      app_url="$1"
-      shift
-      ;;
-    --location)
-      shift
-      app_location="$1"
-      shift
-      ;;
-    --dock)
-      add_to_dock=1
-      shift
-      ;;
-    --pptp)
-      app_template=1
-      shift
-      ;;
-    *)
-      echo Unknown option or value: $1
-      exit 1
-      ;;
+    --app)      shift; app_name="$1";     shift ;;
+    --url)      shift; app_url="$1";      shift ;;
+    --location) shift; app_location="$1"; shift ;;
+    --dock)     shift; add_to_dock=1;           ;;
+    --pptp)     shift; app_template=1;          ;;
+    *) echo Unknown option or value: $1; exit 1 ;;
   esac
 done
 
@@ -68,13 +47,28 @@ download()
 }
 
 case "$app_name" in
+  Dropbox)
+    download "http://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Dropbox-icon.png"
+    sips -z 1024 1024 "${app_name}.png" >/dev/null
+    ;;
+  Facebook)
+    download "http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/\
+images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
+    sips -p 1024 1024 "${app_name}.png" >/dev/null
+    ;;
   GitHub)
     download "https://github.com/fluidicon.png"
     sips -z 1024 1024 "${app_name}.png" >/dev/null
     ;;
-  YouTube)
-    download "http://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png"
+  Gmail)
+    download "https://upload.wikimedia.org/wikipedia\
+/commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
+    ;;
+  Instagram)
+    download "http://static.ak.instagram.com/press/brand-assets/Instagram_Icon_Large.zip"
+    mv /tmp/Instagram_Icon_Large.png "${app_name}.png"
+    sips -z 1024 1024 "${app_name}.png" >/dev/null
     ;;
   Twitter)
     download "https://g.twimg.com/Twitter_logo_blue.png"
@@ -85,24 +79,9 @@ case "$app_name" in
 /en/thumb/8/80/Wikipedia-logo-v2.svg/1024px-Wikipedia-logo-v2.svg.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
     ;;
-  Gmail)
-    download "https://upload.wikimedia.org/wikipedia\
-/commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png"
+  YouTube)
+    download "http://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
-    ;;
-  Facebook)
-    download "http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/\
-images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
-    sips -p 1024 1024 "${app_name}.png" >/dev/null
-    ;;
-  Dropbox)
-    download "http://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Dropbox-icon.png"
-    sips -z 1024 1024 "${app_name}.png" >/dev/null
-    ;;
-  Instagram)
-    download "http://static.ak.instagram.com/press/brand-assets/Instagram_Icon_Large.zip"
-    mv /tmp/Instagram_Icon_Large.png "${app_name}.png"
-    sips -z 1024 1024 "${app_name}.png" >/dev/null
     ;;
   *)
     help

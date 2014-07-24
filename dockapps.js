@@ -1,12 +1,11 @@
 #!/usr/bin/env node
-
-var Q = require('q');
-var fs = require('fs');
-var path = require('path');
-var spawn = require('child_process').spawn;
+var Q        = require('q');
+var fs       = require('fs');
+var path     = require('path');
+var spawn    = require('child_process').spawn;
 var inquirer = require("inquirer");
 
-var choices = {
+var choices  = {
   'Dropbox':   'https://www.dropbox.com/',
   'Facebook':  'https://www.facebook.com/',
   'GitHub':    'https://github.com/',
@@ -27,13 +26,13 @@ var notExistApps = [];
 
 Q().
 then(prompt([{
-  type: 'input',
-  name: 'installLocation',
+  type:    'input',
+  name:    'installLocation',
   message: 'Install the apps to:',
   default: '/Applications/DockApps/'
 }, {
-  type: 'confirm',
-  name: 'addToDock',
+  type:    'confirm',
+  name:    'addToDock',
   message: 'Also add the apps to the dock:',
   default: true
 }])).
@@ -44,8 +43,8 @@ then(function(answers) {
   return answers;
 }).
 then(prompt({
-  type: 'checkbox',
-  name: 'apps',
+  type:    'checkbox',
+  name:    'apps',
   message: 'Choose your apps:',
   choices: choicesKeys,
   default: function() {
@@ -59,8 +58,8 @@ then(function(answers) {
   return answers;
 }).
 then(prompt({
-  type: 'confirm',
-  name: 'customLinks',
+  type:    'confirm',
+  name:    'customLinks',
   message: 'Would you like to customize the URLs?',
   default: false
 })).
@@ -68,8 +67,8 @@ then(function(answers) {
   if (answers.customLinks) {
     var questions = answers.$previous.apps.map(function(favorite) {
       return {
-        type: 'input',
-        name: 'URL.' + favorite,
+        type:    'input',
+        name:    'URL.' + favorite,
         message: 'URL for ' + favorite + ':',
         default: choices[favorite]
       };
@@ -85,8 +84,8 @@ then(function(answers) {
   return obj;
 }).
 then(prompt({
-  type: 'confirm',
-  name: 'customTemplateEach',
+  type:    'confirm',
+  name:    'customTemplateEach',
   message: 'Would you like to customize the template for each app?',
   default: false
 })).
@@ -95,8 +94,8 @@ then(function(answers) {
     var apps = findKeyInPrevious(answers, 'apps');
     var questions = apps.map(function(favorite) {
       return {
-        type: 'list',
-        name: favorite,
+        type:    'list',
+        name:    favorite,
         message: 'Choose template for ' + favorite + ':',
         choices: templates
       };
@@ -105,8 +104,8 @@ then(function(answers) {
   }
 
   return Q(answers).then(prompt({
-    type: 'list',
-    name: 'templateAll',
+    type:    'list',
+    name:    'templateAll',
     message: 'Choose template for all apps:',
     choices: templates
   })).then(function(answers) {
@@ -119,12 +118,12 @@ then(function(answers) {
   });
 }).
 then(function(answers) {
-  var location = findKeyInPrevious(answers, 'installLocation');
+  var location  = findKeyInPrevious(answers, 'installLocation');
   var addToDock = findKeyInPrevious(answers, 'addToDock');
   return keys(answers).reduce(function(prev, app) {
     return prev.then(function() {
       process.stdout.write('Processing ' + app + ' ... ');
-      var url = findKeyInPrevious(answers, 'URL.' + app);
+      var url  = findKeyInPrevious(answers, 'URL.' + app);
       var pptp = templates.indexOf(answers[app]) === 1;
       return dockapps(app, url, location, pptp, addToDock).then(function() {
         console.log('OK');
@@ -142,15 +141,15 @@ then(function(answers) {
 function dockapps(app, url, location, pptp, addToDock) {
   var args = [
     path.join(__dirname, 'dockapps.sh'),
-    '--app', app,
-    '--url', url,
+    '--app',      app,
+    '--url',      url,
     '--location', location,
   ];
-  if (pptp) args.push('--pptp');
+  if (pptp)      args.push('--pptp');
   if (addToDock) args.push('--dock');
   var deferred = Q.defer();
-  var shell = spawn('bash', args, { cwd: __dirname });
-  var stderr = '';
+  var shell    = spawn('bash', args, { cwd: __dirname });
+  var stderr   = '';
   shell.stderr.on('data', function(data) {
     stderr += data;
   });
