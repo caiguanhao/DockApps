@@ -1,0 +1,30 @@
+{
+  "name": "DockApps",
+  "version": "0.0.0",
+  "description": "Open your favorite websites in your Mac OS X dock.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/caiguanhao/DockApps.git"
+  },
+  "keywords": [
+    "Mac OS X",
+    "dock",
+    "apps",
+    "applications",
+    "websites"
+  ],
+  "bin": {
+    "dockapps": "dockapps.js",
+    "dockapps-make": "dockapps.sh"
+  },
+  "author": "Cai Guanhao (Choi Goon-ho)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caiguanhao/DockApps/issues"
+  },
+  "homepage": "https://github.com/caiguanhao/DockApps",
+  "dependencies": {
+    "inquirer": "^0.5.1",
+    "q": "^1.0.1"
+  }
+}

@@ -1,54 +1,18 @@
 DockApps
 ========
 
-Open your favorite websites in the dock.
+Open your favorite websites from your Mac OS X dock.
 
-This shell script will download app icon in png format and convert them to an .icns icon. A small .app file will be created and it contains a shell script whose content comes from `template.sh`.
+```
+npm i dockapps -g
+```
 
-By default, it will first connect to one of your PPTP VPN service (if you have any), and then open the web site in your default web browser.
+The `dockapps` command will guide you step-by-step to create apps.
+
+If you don't have `node` and `npm` installed, you can run the `dockapps.sh`
+shell script.
 
 ![screenshot](https://f.cloud.github.com/assets/1284703/1896367/c7b07ebe-7b99-11e3-89c4-ab177da3bc05.png)
-
-Usage
------
-
-If you have GNU make installed, open terminal, ``cd`` to the repository directory and run:
-
-    make
-    make install
-
-and you'll be asked which apps to make and what URL the app will open. After that, the apps will be copied to /Applications/ directory. You will be asked if you want to add those apps to your dock.
-
----
-
-If you don't have GNU make, you can also open terminal, ``cd`` to the repository directory and run:
-
-    ./make.sh
-
-it will build all apps with default URLs.
-
-    make.sh accepts these arguments:
-
-        --help, -h               Show this help and exit.
-        --dry-run, -d            Do not make. Show URLs.
-        --github <URL>           Make GitHub.app.
-        --wikipedia <URL>        Make Wikipedia.app.
-        --youtube <URL>          Make YouTube.app.
-        --twitter <URL>          Make Twitter.app.
-        --gmail <URL>            Make Gmail.app.
-        --facebook <URL>         Make Facebook.app.
-
-    <URL> is relative to default URL of each app if it is
-    not started with http:// or https://.
-
-To see list of default URLs of selected apps:
-
-    ./make.sh --dry-run --github "" --wikipedia ""
-
-Example:
-
-    ./make.sh --github "caiguanhao?tab=repositories" \
-        --youtube "feed/subscriptions" --wikipedia - --twitter -
 
 Apps
 ----
