@@ -8,6 +8,7 @@ var inquirer = require("inquirer");
 var choices  = {
   'Dropbox':   'https://www.dropbox.com/',
   'Facebook':  'https://www.facebook.com/',
+  'Flowdock':  'https://www.flowdock.com/app',
   'GitHub':    'https://github.com/',
   'Gmail':     'https://gmail.com/',
   'Instagram': 'http://instagram.com/',

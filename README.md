@@ -25,6 +25,10 @@ Apps
 
 * [Facebook icon file](http://img2.wikia.nocookie.net/__cb20130501121248/logopedia/images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png)
 
+### Flowdock
+
+* [Flowdock icon file](https://www.flowdock.com/fluid-icon.png) can be found in the source code of Flowdock home page.
+
 ### GitHub
 
 * [GitHub icon file](https://github.com/fluidicon.png) can be found in the source code of GitHub home page.

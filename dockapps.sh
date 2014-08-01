@@ -56,6 +56,10 @@ case "$app_name" in
 images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
     ;;
+  Flowdock)
+    download "https://www.flowdock.com/fluid-icon.png"
+    sips -z 1024 1024 "${app_name}.png" >/dev/null
+    ;;
   GitHub)
     download "https://github.com/fluidicon.png"
     sips -z 1024 1024 "${app_name}.png" >/dev/null
