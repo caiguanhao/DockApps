@@ -37,6 +37,10 @@ Apps
 
 * [Gmail icon file](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png)
 
+### npm
+
+* [npm icon file](https://www.npmjs.org/static/img/npm.png) can be found in npm's home page.
+
 ### Instagram
 
 * [Instagram icon file](http://static.ak.instagram.com/press/brand-assets/Instagram_Icon_Large.zip)

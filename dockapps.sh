@@ -69,6 +69,10 @@ images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
 /commons/thumb/4/45/New_Logo_Gmail.svg/1024px-New_Logo_Gmail.svg.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
     ;;
+  npm)
+    download "https://www.npmjs.org/static/img/npm.png"
+    sips -Z 1024 -p 1024 1024 "${app_name}.png" >/dev/null
+    ;;
   Instagram)
     download "http://static.ak.instagram.com/press/brand-assets/Instagram_Icon_Large.zip"
     mv /tmp/Instagram_Icon_Large.png "${app_name}.png"

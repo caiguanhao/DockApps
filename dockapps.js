@@ -21,6 +21,7 @@ var choices  = {
   'Flowdock':  'https://www.flowdock.com/app',
   'GitHub':    'https://github.com/',
   'Gmail':     'https://gmail.com/',
+  'npm':       'https://www.npmjs.org/',
   'Instagram': 'http://instagram.com/',
   'Trello':    'https://trello.com/',
   'Twitter':   'https://twitter.com/',
