@@ -2,8 +2,18 @@
 var Q        = require('q');
 var fs       = require('fs');
 var path     = require('path');
+var $0       = path.basename(process.argv[1]);
 var spawn    = require('child_process').spawn;
+var argvlen  = process.argv.length;
 var inquirer = require('inquirer');
+var homepage = require('./package').homepage;
+if (argvlen > 2) {
+  console.error('Error: ' + $0 + ' takes no arguments (' + (argvlen - 2) +
+    ' given).');
+  console.error('If you need help, visit ' + $0 + '\'s homepage: \n' +
+    homepage);
+  process.exit(1);
+}
 
 var choices  = {
   'Dropbox':   'https://www.dropbox.com/',
