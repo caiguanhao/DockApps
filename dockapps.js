@@ -12,6 +12,7 @@ var choices  = {
   'GitHub':    'https://github.com/',
   'Gmail':     'https://gmail.com/',
   'Instagram': 'http://instagram.com/',
+  'Trello':    'https://trello.com/',
   'Twitter':   'https://twitter.com/',
   'Wikipedia': 'https://en.wikipedia.org/',
   'YouTube':   'https://www.youtube.com/'

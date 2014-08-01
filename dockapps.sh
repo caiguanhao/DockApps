@@ -74,6 +74,12 @@ images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
     mv /tmp/Instagram_Icon_Large.png "${app_name}.png"
     sips -z 1024 1024 "${app_name}.png" >/dev/null
     ;;
+  Trello)
+    # http://interestingjohn.deviantart.com/art/Trello-Shadow-Box-Icon-331867074
+    download "http://fc04.deviantart.net/fs70/f/2012/285/8/e/trello_shadow_box_icon_by_interestingjohn-d5hl29u.zip"
+    mv "/tmp/Trello Box.icns" "../${app_name}.icns"
+    SKIPICNS=1
+    ;;
   Twitter)
     download "https://g.twimg.com/Twitter_logo_blue.png"
     sips -Z 1024 -p 1024 1024 "${app_name}.png" >/dev/null
@@ -93,22 +99,26 @@ images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
     ;;
 esac
 
-sips -z 16 16   "${app_name}.png" --out "icon_16x16.png"    >/dev/null
-sips -z 32 32   "${app_name}.png" --out "icon_32x32.png"    >/dev/null
-sips -z 128 128 "${app_name}.png" --out "icon_128x128.png"  >/dev/null
-sips -z 256 256 "${app_name}.png" --out "icon_256x256.png"  >/dev/null
-sips -z 512 512 "${app_name}.png" --out "icon_512x512.png"  >/dev/null
+if [ -z "$SKIPICNS" ]; then
+  sips -z 16 16   "${app_name}.png" --out "icon_16x16.png"    >/dev/null
+  sips -z 32 32   "${app_name}.png" --out "icon_32x32.png"    >/dev/null
+  sips -z 128 128 "${app_name}.png" --out "icon_128x128.png"  >/dev/null
+  sips -z 256 256 "${app_name}.png" --out "icon_256x256.png"  >/dev/null
+  sips -z 512 512 "${app_name}.png" --out "icon_512x512.png"  >/dev/null
 
-cp   "icon_32x32.png"   "icon_16x16@2x.png"
-sips -z 64 64   "${app_name}.png" --out "icon_32x32@2x.png" >/dev/null
-cp   "icon_256x256.png" "icon_128x128@2x.png"
-cp   "icon_512x512.png" "icon_256x256@2x.png"
-cp   "${app_name}.png"  "icon_512x512@2x.png"
+  cp   "icon_32x32.png"   "icon_16x16@2x.png"
+  sips -z 64 64   "${app_name}.png" --out "icon_32x32@2x.png" >/dev/null
+  cp   "icon_256x256.png" "icon_128x128@2x.png"
+  cp   "icon_512x512.png" "icon_256x256@2x.png"
+  cp   "${app_name}.png"  "icon_512x512@2x.png"
 
-cd ..
+  cd ..
 
-iconutil -c icns "${app_name}.iconset" >/dev/null
-rm -rf "${app_name}.iconset"
+  iconutil -c icns "${app_name}.iconset" >/dev/null
+  rm -rf "${app_name}.iconset"
+else
+  cd ..
+fi
 
 cd ..
 

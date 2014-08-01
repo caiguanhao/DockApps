@@ -41,6 +41,10 @@ Apps
 
 * [Instagram icon file](http://static.ak.instagram.com/press/brand-assets/Instagram_Icon_Large.zip)
 
+### Trello
+
+* [Trello Shadow Box Icon](http://interestingjohn.deviantart.com/art/Trello-Shadow-Box-Icon-331867074) by InterestingJohn
+
 ### Twitter
 
 * [Twitter icon file](https://g.twimg.com/Twitter_logo_blue.png) can be downloaded on the Twitter's [Brand assets and guidelines](https://about.twitter.com/press/brand-assets) web page.
