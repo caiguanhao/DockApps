@@ -3,7 +3,7 @@ var Q        = require('q');
 var fs       = require('fs');
 var path     = require('path');
 var spawn    = require('child_process').spawn;
-var inquirer = require("inquirer");
+var inquirer = require('inquirer');
 
 var choices  = {
   'Dropbox':   'https://www.dropbox.com/',
@@ -85,12 +85,21 @@ then(function(answers) {
   });
   return obj;
 }).
-then(prompt({
-  type:    'confirm',
-  name:    'customTemplateEach',
-  message: 'Would you like to customize the template for each app?',
-  default: false
-})).
+then(function(answers) {
+  if (findKeyInPrevious(answers, 'apps').length > 1) {
+    return Q(answers).then(prompt({
+      type:    'confirm',
+      name:    'customTemplateEach',
+      message: 'Would you like to customize the template for each app?',
+      default: false
+    }));
+  } else {
+    return {
+      $previous: answers,
+      customTemplateEach: false
+    };
+  }
+}).
 then(function(answers) {
   if (answers.customTemplateEach) {
     var apps = findKeyInPrevious(answers, 'apps');
@@ -105,10 +114,13 @@ then(function(answers) {
     return Q(answers).then(prompt(questions));
   }
 
+  var appword = 'all apps';
+  if (findKeyInPrevious(answers, 'apps').length === 1) appword = 'this app';
+
   return Q(answers).then(prompt({
     type:    'list',
     name:    'templateAll',
-    message: 'Choose template for all apps:',
+    message: 'Choose template for ' + appword + ':',
     choices: templates
   })).then(function(answers) {
     var value = answers.templateAll;
