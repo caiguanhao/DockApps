@@ -12,7 +12,7 @@ The `dockapps` command will guide you step-by-step to create apps.
 If you don't have `node` and `npm` installed, you can run the `dockapps.sh`
 shell script.
 
-![screenshot](https://f.cloud.github.com/assets/1284703/1896367/c7b07ebe-7b99-11e3-89c4-ab177da3bc05.png)
+![screenshot](https://cloud.githubusercontent.com/assets/1284703/4006314/2172a154-29a8-11e4-903d-d2326c9fa5ce.png)
 
 Apps
 ----
