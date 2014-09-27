@@ -47,6 +47,10 @@ download()
 }
 
 case "$app_name" in
+  BitBucket)
+    download "https://cloud.githubusercontent.com/assets/1284703/4429566/d4d812fe-45f2-11e4-85e2-70feebdf64ec.png"
+    sips -z 1024 1024 "${app_name}.png" >/dev/null
+    ;;
   Dropbox)
     download "http://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Dropbox-icon.png"
     sips -z 1024 1024 "${app_name}.png" >/dev/null

@@ -16,6 +16,7 @@ if (argvlen > 2) {
 }
 
 var choices  = {
+  'BitBucket': 'https://bitbucket.org/',
   'Dropbox':   'https://www.dropbox.com/',
   'Facebook':  'https://www.facebook.com/',
   'Flowdock':  'https://www.flowdock.com/app',
