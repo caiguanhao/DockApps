@@ -74,7 +74,8 @@ images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
     ;;
   npm)
-    download "https://www.npmjs.org/static/img/npm.png"
+    download "https://raw.githubusercontent.com/npm/logos/\
+373398ec73257954872124f3224ff90e62f2635c/%22npm%22%20lockup/npm.png"
     sips -Z 1024 -p 1024 1024 "${app_name}.png" >/dev/null
     ;;
   Instagram)
@@ -98,7 +99,8 @@ images/thumb/f/fb/Facebook_icon_2013.svg/1024px-Facebook_icon_2013.svg.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
     ;;
   YouTube)
-    download "http://www.youtube.com/yt/brand/media/image/YouTube-icon-full_color.png"
+    download "https://www.youtube.com/yt/about/media/downloads/full-color-icon.zip"
+    mv "/tmp/Full Color Icon/For Web/YouTube-icon-full_color.png" "${app_name}.png"
     sips -p 1024 1024 "${app_name}.png" >/dev/null
     ;;
   *)

@@ -12,6 +12,14 @@ The `dockapps` command will guide you step-by-step to create apps.
 If you don't have `node` and `npm` installed, you can run the `dockapps.sh`
 shell script.
 
+For example:
+
+```
+./dockapps.sh --location /Applications/DockApps --app GitHub --url https://github.com --dock
+./dockapps.sh --location /Applications/DockApps --app YouTube --url https://www.youtube.com/ --dock
+killall Dock
+```
+
 ![screenshot](https://cloud.githubusercontent.com/assets/1284703/4006314/2172a154-29a8-11e4-903d-d2326c9fa5ce.png)
 
 Apps
